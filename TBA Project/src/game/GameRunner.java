@@ -40,7 +40,7 @@ public class GameRunner {
             player1.printRoom();
             String move = player1.chooseMove();
             Utilities.movePlayer(tech, player1,move);
-            //gameOn = false;
+           // gameOn = false;
             
 
 
