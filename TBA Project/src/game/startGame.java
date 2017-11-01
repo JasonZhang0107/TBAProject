@@ -1,5 +1,9 @@
 package game;
 
-public class startGame {
-
+public class startGame 
+{
+	public static void main (String[] args)
+	{
+		
+	}
 }
