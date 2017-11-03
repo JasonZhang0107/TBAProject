@@ -8,7 +8,7 @@ public class Player extends Character
 	}
 	public boolean checkGameEnd(int x, int y)
 	{
-		if(x == 5 && y == 5)
+		if(x == 4 && y == 4)
 		{
 			return true;
 		}

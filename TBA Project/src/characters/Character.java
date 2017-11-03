@@ -59,7 +59,7 @@ public abstract class Character
 	}
 	public boolean checkGameEnd(int x2, int y2) 
 	{
-		if(x2 == 5 && y == 5)
+		if(x2 == 4 && y2 == 4)
 		{
 			return true;
 		}

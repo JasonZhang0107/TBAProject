@@ -39,7 +39,7 @@ public class startGame
 				System.out.println();
 				for(int y=0; y<5; y++)
 				{
-					if(player1.getX() == x && player1.getX() == y)
+					if(player1.getX() == x && player1.getY() == y)
 					{
 						System.out.print("[  Y  ]");
 					}
