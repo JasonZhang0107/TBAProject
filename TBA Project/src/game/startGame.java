@@ -7,13 +7,18 @@ import characters.Player;
 import rooms.CreateRandomRoom;
 import rooms.NormalRoom;
 import rooms.Rooms;
+import characters.Character;
+import characters.Player;
 
 public class startGame 
 {
 	public static void main (String[] args)
 	{
+		//creates player
+		Character player1 = new Player(0, 0, 100, 10);
 		
-		drawMap();
+		String response = "";
+		
 		boolean gameWon = false;
 		
 		Rooms[][] roomArray;
@@ -28,29 +33,10 @@ public class startGame
 		}
 		while(gameWon != true)
 		{
-			//string for response
-			String response = "";
-			
-			//creates player
-			Character player1 = new Player(0, 0, 100, 10);
-			
-			for(int x=0; x<5; x++)
-			{
-				System.out.println();
-				for(int y=0; y<5; y++)
-				{
-					if(player1.getX() == x && player1.getY() == y)
-					{
-						System.out.print("[  Y  ]");
-					}
-					System.out.print("[  X  ]");
-				}
-				System.out.print("\n");
-			}
-			
 			if(player1.checkGameEnd(player1.getX(), player1.getY()))
 			{
-				response = ("Congrats you have finished the game");
+				System.out.println("Congrats you have finished the game");
+				break;
 			}
 			else
 			{
@@ -60,25 +46,24 @@ public class startGame
 				
 				String direction = sc.nextLine();
 				
-				player1.characterMove("direction");
+				player1.characterMove(direction);
 			}
-		}
-	}
-	public static void drawMap()
-	{
-	/*
-	 * for(int x=0; x<5; x++)
-		{
-			for(int y=0; y<5; y++)
+			for(int x=0; x<5; x++)
 			{
-				if(player1.getX == x && player1.getY == y)
+				System.out.println();
+				for(int y=0; y<5; y++)
 				{
-					System.out.print("[  Y  ]");
+					if(player1.getX() == x && player1.getY() == y)
+					{
+						System.out.print("[  Y  ]");
+					}
+					else
+					{
+						System.out.print("[     ]");
+					}
 				}
-				System.out.print("[  X  ]");
+				System.out.print("\n");
 			}
-			System.out.print("\n");
 		}
-	 */
 	}
 }

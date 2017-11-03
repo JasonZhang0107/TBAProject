@@ -19,19 +19,19 @@ public class Player extends Character
 	}
 	public void characterMove(String direction)
 	{
-		if(direction == "up" && getX() != 0)
+		if(direction.equals("up") && getX() != 0)
 		{
 			setX(getX() - 1);
 		}
-		if(direction == "down" && getX() != 4)
+		if(direction.equals("down") && getX() != 4)
 		{
 			setX(getX() + 1);
 		}
-		if(direction == "left" && getY() != 0)
+		if(direction.equals("left") && getY() != 0)
 		{
 			setY(getY() - 1);
 		}
-		if(direction == "right" && getX() != 4)
+		if(direction.equals("right") && getY() != 4)
 		{
 			setY(getY() + 1);
 		}

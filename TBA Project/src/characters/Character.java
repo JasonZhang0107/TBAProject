@@ -9,8 +9,8 @@ public abstract class Character
 	
 	public Character(int x, int y, int health, int attackDamage)
 	{
-		this.setX(x);
-		this.setY(y);
+		this.x = x;
+		this.y = y;
 		this.health = health;
 		this.attackDamage = attackDamage;
 	}
@@ -21,17 +21,17 @@ public abstract class Character
 			setX(getX() - 1);
 			System.out.print("You have moved up.");
 		}
-		if(direction.equals("down") && getX() != 4)
+		else if(direction.equals("down") && getX() != 4)
 		{
 			setX(getX() + 1);
 			System.out.print("You have moved down.");
 		}
-		if(direction.equals("left") && getY() != 0)
+		else if(direction.equals("left") && getY() != 0)
 		{
 			setY(getY() - 1);
 			System.out.print("You have moved left.");
 		}
-		if(direction.equals("right") && getX() != 4)
+		else if(direction.equals("right") && getY() != 4)
 		{
 			setY(getY() + 1);
 			System.out.print("You have moved right.");
