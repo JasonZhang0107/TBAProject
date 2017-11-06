@@ -7,4 +7,5 @@ public interface Rooms
 	public abstract void hasFound();
 	public abstract void print();
 	public abstract String description();
+	public abstract int riddleNum();
 }

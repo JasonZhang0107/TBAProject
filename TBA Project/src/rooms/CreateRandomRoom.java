@@ -3,15 +3,19 @@ package rooms;
 import rooms.Rooms;
 public class CreateRandomRoom
 {
+	/*
+	 * Description: Creates an object to be inputed into my 2 dimensional array
+	 * Parameters: None
+	 * Return: An object that is defined by RiddleRoom or NormalRoom
+	 */
 	public static Rooms randomRoom()
 	{
-		int randomNum1 = (int)((Math.random()*10)+1);
+		int randomNum1 = (int)((Math.random()*5)+1);
 		
 		if(randomNum1 == 1)
 		{
-			return new MonsterRoom("dragon");
+			return new RiddleRoom();
 		}
-		
 		return new NormalRoom();
 	}
 }

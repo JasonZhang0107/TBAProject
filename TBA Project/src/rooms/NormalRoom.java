@@ -25,17 +25,17 @@ public class NormalRoom implements Rooms
 	}
 	public void print()
 	{
-		if(hasFound == false)
+		if(hasFound == true)
 		{
-			System.out.print("[     ]");
-		}
-		else
-		{
-			System.out.print("[  N  ]");
+			System.out.print("[  NormalRoom  ]");
 		}
 	}
 	public String description()
 	{
-		return "You have entered a new room, it is empty.\nType another direction";
+		return "You have entered a new room, it is empty.\nType a direction to go in.";
+	}
+	public int riddleNum()
+	{
+		return 0;
 	}
 }

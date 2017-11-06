@@ -5,15 +5,18 @@ public abstract class Character
 	private int x;
 	private int y;
 	private int health;
-	private int attackDamage;
 	
-	public Character(int x, int y, int health, int attackDamage)
+	public Character(int x, int y, int health)
 	{
 		this.x = x;
 		this.y = y;
 		this.health = health;
-		this.attackDamage = attackDamage;
 	}
+	/*
+	 *Description: Updates user coordinates to move
+	 *Parameters: Direction user wants to move in
+	 *Returns: Prints the direction the user chose, also changes the object's coordinates appropriately
+	 */
 	public void characterMove(String direction)
 	{
 		if(direction.equals("up") && getX() != 0)
@@ -57,9 +60,44 @@ public abstract class Character
 	{
 		this.y = y;
 	}
-	public boolean checkGameEnd(int x2, int y2) 
+	/*
+	 *Description: Checks to see if the game has ended
+	 *Parameters: X ad Y coordinates of the player object, user response to question
+	 *Returns: True is user responded no, otherwise false
+	 */
+	public boolean checkGameEnd(int x, int y, String response, int num1, int num2) 
 	{
-		if(x2 == 4 && y2 == 4)
+		if(response.equals("no"))
+		{
+			if(x == 4 && y == 4)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			if(x == num1 && y == num2)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
+	/*
+	 *Description: Checks to see if user object has health of 0
+	 *Parameters: User object's health
+	 *Returns: True is health is 0, false if not
+	 */
+	public boolean dead(int health)
+	{
+		if(health == 0)
 		{
 			return true;
 		}
@@ -67,5 +105,13 @@ public abstract class Character
 		{
 			return false;
 		}
+	}
+	public int getHealth()
+	{
+		return health;
+	}
+	public void setHealth(int health)
+	{
+		this.health = health;
 	}
 }
