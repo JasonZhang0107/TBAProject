@@ -6,7 +6,7 @@ public class NormalRoom implements Rooms
 	private int y;
 	public boolean hasFound = false;
 	
-	public NormalRoom()
+	public NormalRoom(int x, int y)
 	{
 		this.x = x;
 		this.y = y;
@@ -14,10 +14,6 @@ public class NormalRoom implements Rooms
 	public String roomType()
 	{
 		return "Normal";
-	}
-	public String roomID()
-	{
-		return "N";
 	}
 	public void hasFound()
 	{
@@ -33,9 +29,5 @@ public class NormalRoom implements Rooms
 	public String description()
 	{
 		return "You have entered a new room, it is empty.\nType a direction to go in.";
-	}
-	public int riddleNum()
-	{
-		return 0;
 	}
 }

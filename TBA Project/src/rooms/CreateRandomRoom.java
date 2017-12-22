@@ -8,14 +8,14 @@ public class CreateRandomRoom
 	 * Parameters: None
 	 * Return: An object that is defined by RiddleRoom or NormalRoom
 	 */
-	public static Rooms randomRoom()
+	public static Rooms randomRoom(int x, int y)
 	{
 		int randomNum1 = (int)((Math.random()*5)+1);
 		
 		if(randomNum1 == 1)
 		{
-			return new RiddleRoom();
+			return new RiddleRoom(x, y);
 		}
-		return new NormalRoom();
+		return new NormalRoom(x, y);
 	}
 }

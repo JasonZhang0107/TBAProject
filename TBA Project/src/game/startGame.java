@@ -54,7 +54,7 @@ public class startGame
 			else
 			{
 				System.out.println(roomArray[player1.getX()][player1.getY()].description());
-				if(roomArray[player1.getX()][player1.getY()].roomType().equals("Riddle"))
+				if(roomArray[player1.getX()][player1.getY()] instanceof RiddleRoom)
 				{
 					if(roomArray[player1.getX()][player1.getY()].riddleNum() == 1)
 					{
