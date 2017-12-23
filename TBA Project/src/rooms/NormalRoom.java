@@ -5,6 +5,8 @@ public class NormalRoom implements Rooms
 	private int x;
 	private int y;
 	public boolean hasFound = false;
+	private String question;
+	private String answer;
 	
 	public NormalRoom(int x, int y)
 	{
@@ -24,6 +26,10 @@ public class NormalRoom implements Rooms
 		if(hasFound == true)
 		{
 			System.out.print("[  NormalRoom  ]");
+		}
+		else
+		{
+			System.out.print("[              ]");
 		}
 	}
 	public String description()

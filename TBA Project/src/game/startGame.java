@@ -6,6 +6,7 @@ import board.Board;
 import characters.Character;
 import characters.Player;
 import rooms.CreateRandomRoom;
+import rooms.RiddleRoom;
 import rooms.Rooms;
 
 public class startGame 
@@ -20,12 +21,13 @@ public class startGame
 		
 		Rooms[][] roomArray;
 		System.out.println();
+		
 		roomArray = new Rooms[5][5];
 		for(int x=0; x<5; x++)
 		{
 			for(int y=0; y<5; y++)
 			{
-				roomArray[x][y] = CreateRandomRoom.randomRoom();
+				roomArray[x][y] = CreateRandomRoom.randomRoom(x, y);
 			}
 		}
 		
@@ -55,21 +57,18 @@ public class startGame
 			{
 				System.out.println(roomArray[player1.getX()][player1.getY()].description());
 				if(roomArray[player1.getX()][player1.getY()] instanceof RiddleRoom)
-				{
-					if(roomArray[player1.getX()][player1.getY()].riddleNum() == 1)
-					{
-						String question = "Mary’s father has 5 daughters – Nana, Nene, Nini, Nono. What is the fifth daughters name?";
-						String answer = "Mary";
+				{	
+						//prints the question on screen
+						System.out.println(roomArray[player1.getX()][player1.getY()].question());
 						
-						System.out.println(question);
-						
+						//check to see if riddle has been false, initially it is false
 						boolean riddlePassed = false;
 						
 						while (riddlePassed == false)
 						{
 							Scanner riddle1 = new Scanner(System.in);
 							String riddleAnswer = riddle1.nextLine();
-							if(riddleAnswer.equals(answer))
+							if(riddleAnswer.equals(roomArray[player1.getX()][player1.getY()].answer()))
 							{
 								riddlePassed = true;
 								player1.setHealth(player1.getHealth() + 1);
@@ -97,89 +96,6 @@ public class startGame
 							}
 						}
 					}
-					else if(roomArray[player1.getX()][player1.getY()].riddleNum() == 2)
-					{
-						String question = "What starts with a ‘P’, ends with an ‘E’ and has thousands of letters?";
-						String answer = "The Post Office";
-						
-						System.out.println(question);
-						
-						boolean riddlePassed = false;
-						
-						while (riddlePassed == false)
-						{
-							Scanner riddle2 = new Scanner(System.in);
-							String riddleAnswer = riddle2.nextLine();
-							if(riddleAnswer.equals(answer))
-							{
-								riddlePassed = true;
-								player1.setHealth(player1.getHealth() + 1);
-								System.out.println("That is correct. You have gained 1 health for your correct answer. You may now leave the room.\nType a new direction to do so.");
-								Scanner sc2 = new Scanner(System.in);
-								
-								String direction = sc2.nextLine();
-								
-								player1.characterMove(direction);
-								
-								Board.drawBoard(player1);
-								break;
-							}
-							else
-							{
-								player1.setHealth(player1.getHealth() - 1);
-								if(player1.dead(player1.getHealth()))
-								{
-									System.out.println("You have been killed in the room for giving too many wrong answers");
-								}
-								else
-								{
-									System.out.println("That is incorrect. You have taken 1 damage for the incorrect answer. " +player1.getHealth()+ " health left.\nTry again.");
-								}
-							}
-						}
-					}
-					else if(roomArray[player1.getX()][player1.getY()].riddleNum() == 3)
-					{
-						String question = "How many months have 28 days?";
-						String answer = "12";
-						
-						System.out.println(question);
-						
-						boolean riddlePassed = false;
-						
-						while (riddlePassed == false)
-						{
-							Scanner riddle3 = new Scanner(System.in);
-							String riddleAnswer = riddle3.nextLine();
-							if(riddleAnswer.equals(answer))
-							{
-								riddlePassed = true;
-								player1.setHealth(player1.getHealth() + 1);
-								System.out.println("That is correct. You have gained 1 health for your correct answer. You may now leave the room.\nType a new direction to do so.");
-								Scanner sc3 = new Scanner(System.in);
-								
-								String direction = sc3.nextLine();
-								
-								player1.characterMove(direction);
-								
-								Board.drawBoard(player1);
-								break;
-							}
-							else
-							{
-								player1.setHealth(player1.getHealth() - 1);
-								if(player1.dead(player1.getHealth()))
-								{
-									System.out.println("You have been killed in the room for giving too many wrong answers");
-								}
-								else
-								{
-									System.out.println("That is incorrect. You have taken 1 damage for the incorrect answer. " +player1.getHealth()+ " health left.\nTry again.");
-								}
-							}
-						}
-					}
-				}
 				else
 				{
 					Scanner sc = new Scanner(System.in);

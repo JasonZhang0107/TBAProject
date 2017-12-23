@@ -5,14 +5,17 @@ public class RiddleRoom implements Rooms
 	private int x;
 	private int y;
 	private boolean hasFound = false;
+	private String question;
+	private String answer;
 	
 	public RiddleRoom(int x, int y)
 	{
 		this.x = x;
 		this.y = y;
-		
+	}
+	public String question()
+	{
 		int randomNum = (int)((Math.random()*3)+1);
-		
 		if(randomNum == 1)
 		{
 			this.question = "Mary’s father has 5 daughters – Nana, Nene, Nini, Nono. What is the fifth daughters name?";
@@ -28,10 +31,11 @@ public class RiddleRoom implements Rooms
 			this.question = "How many months have 28 days?";
 			this.answer = "12";
 		}
+		return this.question;
 	}
-	public String roomType()
+	public String answer()
 	{
-		return "Riddle";
+		return this.answer;
 	}
 	public void hasFound()
 	{
@@ -42,6 +46,10 @@ public class RiddleRoom implements Rooms
 		if(hasFound == false)
 		{
 			System.out.print("[  RiddleRoom  ]");
+		}
+		else
+		{
+			System.out.print("[              ]");
 		}
 	}
 	public String description()

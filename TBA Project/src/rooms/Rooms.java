@@ -2,10 +2,9 @@ package rooms;
 
 public interface Rooms
 {
-	public abstract String roomID();
-	public abstract String roomType();
 	public abstract void hasFound();
-	public abstract void print();
 	public abstract String description();
-	public abstract int riddleNum();
+	public abstract String question();
+	public abstract String answer();
+	public abstract void print();
 }
