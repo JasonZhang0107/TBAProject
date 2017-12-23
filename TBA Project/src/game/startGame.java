@@ -22,16 +22,23 @@ public class startGame
 		Rooms[][] roomArray;
 		System.out.println();
 		
-		roomArray = new Rooms[5][5];
-		for(int x=0; x<5; x++)
+		int row = 3;
+		int column = 3;
+		roomArray = new Rooms[row][column];
+		
+		for(int x=0; x<row; x++)
 		{
-			for(int y=0; y<5; y++)
+			for(int y=0; y<column; y++)
 			{
 				roomArray[x][y] = CreateRandomRoom.randomRoom(x, y);
 			}
 		}
 		
-		Board.drawBoard(player1);
+		//Constructor that takes in parameters for size of board
+		//Board.drawBoard(player1, row, column);
+		
+		//Constructor that draws a default board of row and column 5
+		//Board.drawBoard(player1);
 		
 		System.out.println("Would you like the map to be randomized, yes or no");
 		
